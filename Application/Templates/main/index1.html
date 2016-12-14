@@ -1,0 +1,77 @@
+<html>
+	<head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <title>Интернет-магазин</title>
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+        <link rel="stylesheet" href="css/mobile-style.css" type="text/css">
+        <link rel="stylesheet" href="css/owl.carousel.css">
+        <link rel="stylesheet" href="css/owl.theme.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="js/owl.carousel.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+	</head>
+	<body>
+		<div id="wrapper">
+            [header]
+            <div style="white-space:nowrap;position:relative;">
+                <nav style="display:inline-block;width:73%;">
+                    <ul class="top-menu">
+                        <li><a href="/">Главная</a></li>	
+                        <li><a href="/goods/male">Мужская одежда</a></li>
+                        <li><a href="/goods/female">Женская одежда</a></li>
+                        <li><a href="/goods/special">Акции</a></li>
+                    </ul>
+                </nav>
+                <div style="display:inline-block; width:27%; position: absolute; top: 15%;">
+                    <button type="submit" style="width: 30px;padding-top: 0px; float: right;"><i class="fa fa-search"></i></button>
+                    <input type="text" name="q" placeholder="Поиск" style="float: right;">
+                </div>
+            </div>
+            [home-slider]
+            <div id="heading">
+                <h1>Главная</h1>
+            </div>
+            
+            <script>
+				$(function(){
+					var topPos = $('.floating').offset().top; //topPos - это значение от верха блока до окна браузера
+					$(window).scroll(function() { 
+						var top = $(document).scrollTop();
+						if (top > topPos) { 
+							$('.floating').addClass('fixed');
+							$('.floating').css('margin-top','0px'); 
+						} else {
+							$('.floating').removeClass('fixed');
+							$('.floating').css('margin-top','30px'); 
+						}
+					});
+				});
+			</script>
+
+            <table>
+            	<tr>
+                	<td style="vertical-align:top; width:21%">
+                        <div class="floating">
+							<span>Фильтры</span>
+                        </div>
+                    </td>
+                    <td align="left" style="padding:15px;"> 
+                        <section>
+                            [goods]
+                        </section>
+            		</td>
+                </tr>
+            </table>
+            [footer]
+        </div>
+        
+        [[!isLogin]][sign-in][[/!isLogin]]
+	</body>
+</html>

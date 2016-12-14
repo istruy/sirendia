@@ -1,0 +1,20 @@
+{
+  "name": "irina/sirendia-project",
+  "description": "Internet shop Sirendia",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Irina Struy",
+      "email": "hello-ira@yandex.ru"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "twig/twig": "~1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Application\\": "Application/"
+    }
+  }
+}

@@ -1,0 +1,96 @@
+<?php
+namespace Application;
+
+use Application\Controllers\Error404Controller;
+use Application\Controllers\ErrorController;
+use Application\Core\Config;
+use Application\Core\Exceptions\ApplicationException;
+use Application\Core\Exceptions\RouterNotFoundRouteException;
+use Application\Core\LogWriter;
+use Application\Core\Router;
+
+/**
+ * Class Router
+ * @package Application
+ */
+class Application
+{
+    const CONTROLLER = 'controller';
+    const ACTION = 'action';
+
+    /**
+     * @var string
+     */
+    private static $pathToConfigFile = __DIR__ . "/Configs/config.json";
+    /**
+     * @var string
+     */
+    private static $pathToConfigParametersFile = __DIR__ . "/Configs/configParameters.json";
+
+    /**
+     * @param array $server
+     * @param array $request
+     */
+    public static function launch(array $server, array $request)
+    {
+        try {
+            self::importConfig(self::$pathToConfigFile, self::$pathToConfigParametersFile);
+            self::initLogWriter();
+            self::activateRouter($server, $request);
+            $currentUrl = Router::getInstance()->getUrl();
+            $route = Router::getInstance()->getRoute($currentUrl);
+            $controller = Router::getInstance()->getController($route['controller']);
+            $controller->action($server, $request);
+        } catch (RouterNotFoundRouteException $exception) {
+            (new Error404Controller())->action($server, []);
+            self::logError("RouterNotFoundRoute exception!!!", $exception);
+        } catch (ApplicationException $exception) {
+            (new ErrorController())->action($server, ['errorMessage' => $exception->getMessage()]);
+            self::logError("Application exception!!!", $exception);
+        } catch (\Exception $exception) {
+            (new ErrorController())->action($server, ['errorMessage' => "Internal exception!"]);
+            self::logError("Internal exception!!!", $exception);
+        } catch (\Error $error) {
+            (new ErrorController())->action($server, ['errorMessage' => "Internal error!"]);
+            self::logError("Internal error!!!", $error);
+        }
+    }
+
+    /**
+     * @param string $pathToConfigFile
+     * @param string $pathToConfigParametersFile
+     */
+    private static function importConfig(string $pathToConfigFile, string $pathToConfigParametersFile)
+    {
+        Config::initConfig($pathToConfigFile, $pathToConfigParametersFile);
+        ini_set("display_errors", Config::getInstance()->getShowErrorsOption());
+    }
+
+    /**
+     * @param array $server
+     * @param array $request
+     */
+    private static function activateRouter(array $server, array $request)
+    {
+        Router::initRouter($server, $request);
+    }
+
+    private static function initLogWriter()
+    {
+        LogWriter::initLogWriter(Config::getInstance()->getLogFolder());
+        LogWriter::getInstance()->write("*****************************************************" . PHP_EOL);
+        LogWriter::getInstance()->write("LogWriter инициализирован " . date("Y-m-d H:i:s") . PHP_EOL);
+        LogWriter::getInstance()->write("*****************************************************" . PHP_EOL);
+    }
+
+    /**
+     * @param $errorType
+     * @param \Exception| \Error $error
+     */
+    private static function logError(string $errorType, $error)
+    {
+        LogWriter::getInstance()->write($errorType . PHP_EOL);
+        LogWriter::getInstance()->write("Message: " . $error->getMessage() . PHP_EOL);
+        LogWriter::getInstance()->write("Trace: " . $error->getTraceAsString() . PHP_EOL . PHP_EOL);
+    }
+}

@@ -1,0 +1,267 @@
+@media (max-width: 480px) {
+	body {
+		border-top: 4.1667px solid #7e7e7e;
+		border-bottom: 20.833px solid #7e7e7e;
+		margin: 0 4.1667px;
+	}
+	
+	input[type="text"],input[type="password"] {
+		width: 41.67px;
+		height: 6.25px;
+		padding: 0 2.083px;
+	}
+	
+	button {
+		height: 6.25px;
+	}
+	
+	p {
+		margin: 4.1667px 0;
+	}
+	
+    #wrapper {
+		width: 250px;
+		padding: 0 10.416667px;
+		box-shadow: 0px 0px 3.541667px 2.29167px rgb(82, 82, 82);
+	}/* в 4.8 раза */
+
+	#owl-demo {
+		margin-top: 1.04167px;	
+	}
+	
+	#owl-demo .item img {
+		height: 83.3334px;
+	}
+	
+	#owl-demo .item .item-content .item-price i {
+		font-size: 7.29167px;	
+	}
+	
+	#owl-demo .item .item-content {
+		left: 135.41667px;
+		top: 5.20833px;
+		font-size: 10.4167px;
+		height: 20.8334px; 
+	}
+	
+	header {
+		padding-top: 4.1667px;
+	}
+	
+	header #logo {
+		margin-right: 62.5px;
+		font-size: 13.3334px;
+	}
+	
+	header #additional-menu .element{
+		font-size:3.5417px;
+		margin-right: 4.167px;
+	}
+	
+	header #right #profile div {
+		font-size: 3.54167px;
+	}
+	
+	header #right #right-icons {
+		font-size: 4.167px;
+	}
+	
+	nav li {
+		font-size:4.167px;
+		padding: 1.875px;
+	}
+	
+	.top-menu li:first-child {
+		padding-left: 2.083px;	
+	}
+	
+	.top-menu li {
+		padding: 1.875px 4.167px;
+	}
+	
+	.top-menu li:before {
+		height: 1.04167px;
+	}
+	
+	input[name="q"] {
+		width: 12.5px;
+	}
+	
+	input[name="q"]:focus {
+		width: 35.4167px;
+	}
+	
+	#heading {
+		margin: 6.25px 0;
+	}
+	
+	h1 {
+		font-size: 8.334px;
+	}
+	
+	section {
+		padding-bottom: 10.4167px;
+	}
+	
+	section > h2 {
+		font-weight: 62.5;
+		padding: 0 2.08334px;
+		margin: 6.25px 0 0 0;
+	}
+	
+	.floating {
+		margin-top: 6.25px;
+		height: 83.334px;
+		width: 58.334px;
+		padding-right: 2.0834px;
+		border-right-width: 0.4167px;
+	}
+	.fixed {
+		top: 2.0834px; /*здесь указываем отступ сверху*/
+	}
+	
+	figure {
+		margin-right: 1.45834px;
+		margin-left: 1.45834px;
+		margin-bottom: 4.167px;
+		height: 62.5px;
+	}
+	
+	figure .content .opacty {
+		height: 52.0834px;
+		width: 41.67px;
+	}
+
+	figure .content .opacty .icons{
+		height: 8.334px; 
+		width: 41.67px; 
+		top: 43.75px;
+		font-size:5px;
+	}
+	
+	figure .content .opacty .icons .icons-icons{
+		position: absolute; 
+		height: 12.5px; 
+		width: 20.834px; 
+		left: 10.4167px;
+		font-size: 5px;
+	}
+	
+	figure .content .opacty .icons .fa {
+		padding-right: 2.0834px;
+		padding-left: 2.0834px;
+	}
+
+	figure .content img {
+		width: 41.67px; 
+		height: 52.0834px;
+	}
+	
+	figure .content i {
+		height: 8.34px;
+		line-height: 8.34px;
+	}
+	
+	figure .desc div {
+		font-size: 4.5834px;
+	}
+	
+	.fa-shopping-bag {
+		padding-right: 3.125px;
+	}
+	
+	.fa-sign-in {
+		padding-right:1.45834px;	
+	}
+	
+	.team-row figure {
+		margin-top: 4.167px;
+	} 
+	
+	.team-row figure + figure {
+		margin-left: 8.95834px;
+	}
+	
+	footer {
+		font-size: 2.29167px;
+	}
+	
+	#footer {
+		max-width: 200px;
+		padding: 2.0834px 0;
+		height: 18.75px;
+	}
+
+	footer h3 {
+		font: 2.92px Gotham, sans-serif;
+		border-bottom: 1px solid #919191;
+		margin: 0 0 2.0834px 0;
+	}
+	
+	footer p {
+		margin: 1.04167px 0;
+	}
+	
+	#twitter {
+		width: 62.5px;
+	}
+	
+	#twitter p {
+		padding-right: 3.125px;
+	}
+	
+	#sitemap {
+		width: 31.25px;
+		margin-left: 4.167px;
+		padding-right: 3.125px;
+	}
+	
+	#sitemap div {
+		display: inline-block;
+	}
+	
+	#sitemap div + div {
+		margin-left: 8.334px;
+	}
+	
+	#sitemap a {
+		font-size: 2.5px;
+		margin-bottom: 1.0417px;
+	}
+	
+	/*sign-in*/
+	#enterForm {
+		width: 62.5px; 
+		height: 47.9167px; 
+		border:0.42px #d3d3d3 solid;
+		border-radius: 1.042px;
+		margin-top: -31.25px;
+		margin-left: -31.25px; 
+		padding: 4.167px 2.0834px;
+		padding-top: 6px;
+	}
+	
+	#enterForm input{
+		border-radius: 0.8334px;
+		border:0.2083px #dde3ec solid;
+		margin: 0px 3.3334px 3.125px 0px;
+	}
+	
+	#enterForm button{
+		margin: 0.4167px 0px 1.042px 0px;
+	}
+	
+	#enterForm h4{
+		font-family: 'Gotham', sans-serif;
+		margin-bottom: 1.0412px;
+	}
+	
+	#enterForm input:last-child {
+		margin-bottom: 0,834px;
+	}
+	
+	#enterForm h2 {
+		font-family: 'Gotham', sans-serif;
+		margin-bottom: 1.25px;
+	}
+}
