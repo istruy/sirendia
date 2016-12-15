@@ -4,6 +4,7 @@ namespace Application;
 use Application\Controllers\Error404Controller;
 use Application\Controllers\ErrorController;
 use Application\Core\Config;
+use Application\Core\Database;
 use Application\Core\Exceptions\ApplicationException;
 use Application\Core\Exceptions\RouterNotFoundRouteException;
 use Application\Core\LogWriter;
@@ -11,6 +12,7 @@ use Application\Core\Router;
 
 /**
  * Class Router
+ *
  * @package Application
  */
 class Application
@@ -27,31 +29,39 @@ class Application
      */
     private static $pathToConfigParametersFile = __DIR__ . "/Configs/configParameters.json";
 
+
+    public static function startSession()
+    {
+        session_start();
+    }
+
     /**
      * @param array $server
      * @param array $request
+     * @param array $session
      */
-    public static function launch(array $server, array $request)
+    public static function launch(array $server, array $request, array $session)
     {
         try {
             self::importConfig(self::$pathToConfigFile, self::$pathToConfigParametersFile);
             self::initLogWriter();
+            self::initDBConn('localhost', 'root', 'password', 'Shop');
             self::activateRouter($server, $request);
             $currentUrl = Router::getInstance()->getUrl();
             $route = Router::getInstance()->getRoute($currentUrl);
             $controller = Router::getInstance()->getController($route['controller']);
-            $controller->action($server, $request);
+            $controller->action($server, $request, $session);
         } catch (RouterNotFoundRouteException $exception) {
-            (new Error404Controller())->action($server, []);
+            (new Error404Controller())->action($server, [], $session);
             self::logError("RouterNotFoundRoute exception!!!", $exception);
         } catch (ApplicationException $exception) {
-            (new ErrorController())->action($server, ['errorMessage' => $exception->getMessage()]);
+            (new ErrorController())->action($server, ['errorMessage' => $exception->getMessage()], $session);
             self::logError("Application exception!!!", $exception);
         } catch (\Exception $exception) {
-            (new ErrorController())->action($server, ['errorMessage' => "Internal exception!"]);
+            (new ErrorController())->action($server, ['errorMessage' => "Internal exception!"], $session);
             self::logError("Internal exception!!!", $exception);
         } catch (\Error $error) {
-            (new ErrorController())->action($server, ['errorMessage' => "Internal error!"]);
+            (new ErrorController())->action($server, ['errorMessage' => "Internal error!"], $session);
             self::logError("Internal error!!!", $error);
         }
     }
@@ -92,5 +102,10 @@ class Application
         LogWriter::getInstance()->write($errorType . PHP_EOL);
         LogWriter::getInstance()->write("Message: " . $error->getMessage() . PHP_EOL);
         LogWriter::getInstance()->write("Trace: " . $error->getTraceAsString() . PHP_EOL . PHP_EOL);
+    }
+
+    private static function initDBConn(string $host, string $user, string $password, string $dataBaseName)
+    {
+        Database::init($host, $user, $password, $dataBaseName);
     }
 }

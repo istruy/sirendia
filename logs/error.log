@@ -1,0 +1,73 @@
+*****************************************************
+LogWriter инициализирован 2016-12-14 21:13:57
+*****************************************************
+*****************************************************
+LogWriter инициализирован 2016-12-14 21:14:30
+*****************************************************
+Internal error!!!
+Message: Return value of Application\Core\Model::getData() must be of the type array, null returned
+Trace: #0 /var/www/html/shop/Application/Controllers/IndexController.php(20): Application\Core\Model->getData()
+#1 /var/www/html/shop/Application/Application.php(43): Application\Controllers\IndexController->action(Array, Array)
+#2 /var/www/html/shop/public/index.php(7): Application\Application::launch(Array, Array)
+#3 {main}
+
+*****************************************************
+LogWriter инициализирован 2016-12-14 21:14:53
+*****************************************************
+Internal error!!!
+Message: Return value of Application\Core\Model::getData() must be of the type array, null returned
+Trace: #0 /var/www/html/shop/Application/Controllers/IndexController.php(21): Application\Core\Model->getData()
+#1 /var/www/html/shop/Application/Application.php(43): Application\Controllers\IndexController->action(Array, Array)
+#2 /var/www/html/shop/public/index.php(7): Application\Application::launch(Array, Array)
+#3 {main}
+
+*****************************************************
+LogWriter инициализирован 2016-12-14 21:15:55
+*****************************************************
+Internal error!!!
+Message: Return value of Application\Core\Model::getData() must be of the type array, null returned
+Trace: #0 /var/www/html/shop/Application/Controllers/IndexController.php(20): Application\Core\Model->getData()
+#1 /var/www/html/shop/Application/Application.php(43): Application\Controllers\IndexController->action(Array, Array)
+#2 /var/www/html/shop/public/index.php(7): Application\Application::launch(Array, Array)
+#3 {main}
+
+*****************************************************
+LogWriter инициализирован 2016-12-14 21:15:56
+*****************************************************
+Internal error!!!
+Message: Return value of Application\Core\Model::getData() must be of the type array, null returned
+Trace: #0 /var/www/html/shop/Application/Controllers/IndexController.php(20): Application\Core\Model->getData()
+#1 /var/www/html/shop/Application/Application.php(43): Application\Controllers\IndexController->action(Array, Array)
+#2 /var/www/html/shop/public/index.php(7): Application\Application::launch(Array, Array)
+#3 {main}
+
+*****************************************************
+LogWriter инициализирован 2016-12-14 21:16:36
+*****************************************************
+Internal error!!!
+Message: Return value of Application\Core\Model::getData() must be of the type array, null returned
+Trace: #0 /var/www/html/shop/Application/Controllers/IndexController.php(20): Application\Core\Model->getData()
+#1 /var/www/html/shop/Application/Application.php(44): Application\Controllers\IndexController->action(Array, Array)
+#2 /var/www/html/shop/public/index.php(7): Application\Application::launch(Array, Array)
+#3 {main}
+
+*****************************************************
+LogWriter инициализирован 2016-12-14 21:16:51
+*****************************************************
+Internal error!!!
+Message: Return value of Application\Core\Model::getData() must be of the type array, null returned
+Trace: #0 /var/www/html/shop/Application/Controllers/IndexController.php(21): Application\Core\Model->getData()
+#1 /var/www/html/shop/Application/Application.php(43): Application\Controllers\IndexController->action(Array, Array)
+#2 /var/www/html/shop/public/index.php(7): Application\Application::launch(Array, Array)
+#3 {main}
+
+*****************************************************
+LogWriter инициализирован 2016-12-14 21:16:58
+*****************************************************
+Internal error!!!
+Message: Return value of Application\Core\Model::getData() must be of the type array, null returned
+Trace: #0 /var/www/html/shop/Application/Controllers/IndexController.php(20): Application\Core\Model->getData()
+#1 /var/www/html/shop/Application/Application.php(43): Application\Controllers\IndexController->action(Array, Array)
+#2 /var/www/html/shop/public/index.php(7): Application\Application::launch(Array, Array)
+#3 {main}
+

@@ -10,6 +10,8 @@ abstract class Controller
     /**
      * @param array $server
      * @param array $request
+     * @param array $session
+     * @return
      */
-    abstract public function action(array $server, array $request);
+    abstract public function action(array $server, array $request, array $session);
 }

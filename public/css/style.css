@@ -1,21 +1,21 @@
 @font-face {
     font-family: Luciano; /* Имя шрифта */
-    src: url(../public/fonts/Luciano.ttf); /* Путь к файлу со шрифтом */
+    src: url(../fonts/Luciano.ttf); /* Путь к файлу со шрифтом */
 }
 
 @font-face {
     font-family: Blacksword; /* Имя шрифта */
-    src: url(../public/fonts/Blacksword.otf); /* Путь к файлу со шрифтом */
+    src: url(../fonts/Blacksword.otf); /* Путь к файлу со шрифтом */
 }
 
 @font-face {
     font-family: Gotham; /* Имя шрифта */
-    src: url(../public/fonts/10183.ttf); /* Путь к файлу со шрифтом */
+    src: url(../fonts/10183.ttf); /* Путь к файлу со шрифтом */
 }
 
 @font-face {
     font-family: HKGrotesk-Light; /* Имя шрифта */
-    src: url(../public/fonts/HKGrotesk-Light.ttf); /* Путь к файлу со шрифтом */
+    src: url(../fonts/HKGrotesk-Light.ttf); /* Путь к файлу со шрифтом */
 }
 
 html {

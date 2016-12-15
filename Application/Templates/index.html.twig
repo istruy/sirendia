@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Интернет магазин</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/public/css/owl.carousel.css">
+    <link rel="stylesheet" href="/public/css/owl.theme.css">
+    <link rel="stylesheet" href="/public/css/font-awesome.min.css">
+    <script type="text/javascript" src="/public/js/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="/public/js/owl.carousel.js"></script>
+    <script type="text/javascript" src="/public/js/main.js"></script>
+
+</head>
+<body>
+<div id="wrapper">
+    <header>
+        <div id="logo">Sirendia</div>
+        <div id="additional-menu">
+            <div class="element"><a href="">Доставка</a></div>
+            <div class="element"><a href="">Контакты</a></div>
+        </div>
+
+        <div id="right">
+            {% if (isLogin) %}
+                <div id="right-icons"><a href="/basket"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a></div>
+                <div id="profile">
+                    <div><a href="/profile">{{ userName }}</a></div>
+                </div>
+            {% else %}
+                <div id="right-icons"><i class="fa fa-sign-in" aria-hidden="true"></i></div>
+                <div id="profile">
+                    <div><a id="sign-in">Вход</a></div>
+                </div>
+            {% endif %}
+        </div>
+    </header>
+    <div style="white-space:nowrap;position:relative;">
+        <nav style="display:inline-block;width:73%; ">
+            <ul class="top-menu">
+                <li><a href="/">Главная</a></li>
+                <li><a href="/goods/male">Мужская одежда</a></li>
+                <li><a href="/goods/female">Женская одежда</a></li>
+                <li><a href="/goods/special">Акции</a></li>
+            </ul>
+        </nav>
+        <div style="display:inline-block; width:27%; position: absolute; top: 15%;">
+            <button type="submit" style="width: 30px;padding-top: 0px; float: right;"><i class="fa fa-search"></i>
+            </button>
+            <input type="text" name="q" placeholder="Поиск" style="float: right;">
+        </div>
+    </div>
+    <div id="backgrnd"></div>
+    <div id="owl-demo" class="owl-carousel owl-theme">
+        {% for slider in sliders %}
+            <div class="item">
+                <img src="{{ slider.media }}">
+                <div class="item-content" {% if (slider.color) %}style="color:{{ slider.color }}"{% endif %}>
+                    <div class="item-title">{{ slider.title }}</div>
+                    <div class="item-price">{{ slider.price }} <i class="fa fa-rub"></i></div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div id="heading">
+        <h1></h1>
+    </div>
+
+    <script>
+        $(function () {
+            var topPos = $('.floating').offset().top; //topPos - это значение от верха блока до окна браузера
+            $(window).scroll(function () {
+                var top = $(document).scrollTop();
+                if (top > topPos) {
+                    $('.floating').addClass('fixed');
+                    $('.floating').css('margin-top', '0px');
+                } else {
+                    $('.floating').removeClass('fixed');
+                    $('.floating').css('margin-top', '30px');
+                }
+            });
+        });
+    </script>
+
+    <table>
+        <tr>
+            <td style="vertical-align:top; width:26%">
+                <div class="floating">
+                    <span>Фильтры</span>
+                </div>
+            </td>
+            <td align="left" style="padding:15px;">
+                <section>
+                    {% for good in goods %}
+                        <figure id="{{ good.id }}">
+                            <div class="content">
+                                <div class="img">
+                                    <img src="{{ good.media }}" alt="">
+                                </div>
+                            </div>
+                            <div class="desc">
+                                <div class="information">
+                                    <div class="ell">{{ good.title }}</div>
+                                    <div class="price">{{ good.price }}<i class="fa fa-rub"></i></div>
+                                </div>
+                                <div class="icons">
+                                    <div class="icons-icons">
+                                        <i class="fa fa-eye" onclick="quickView(this);" aria-hidden="true"></i>
+                                        <i class="fa fa-heart-o" onclick="setLike(this);" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </figure>
+                    {% endfor %}
+                </section>
+            </td>
+        </tr>
+    </table>
+    <footer hidden>
+        <div id="footer">
+            <div id="twitter">
+                <h3>Интернет-магазин</h3>
+                <time datetime="2016-10-13"><a href="#">13 oct</a></time>
+                <p>
+                    Создан в 2016 году
+                </p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+{% if isLogin == false %}
+    <!--Sign-in-->
+    <div id="enterForm">
+        <h2>Вход</h2>
+        <h4 id="errors"></h4>
+        <input name="login" type="text" size="15" maxlength="15" placeholder="Логин">
+        <input name="password" type="password" size="15" maxlength="15" placeholder="Пароль">
+        <div id="buttons">
+            <button type="submit" name="submit" onclick="onLog();">Войти</button>
+            <button type="submit" onclick="window.location.href='/registration';">Зарегистрироваться</button>
+        </div>
+    </div>
+    <div id="overlay"></div>
+{% endif %}
+</body>
+</html>

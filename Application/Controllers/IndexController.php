@@ -14,9 +14,10 @@ class IndexController extends Controller
     /**
      * @param array $server
      * @param array $request
+     * @param array $session
      */
-    public function action(array $server, array $request)
+    public function action(array $server, array $request, array $session)
     {
-        (new IndexView())->generate(((new IndexModel())->buildData())->getData());
+        (new IndexView())->generate(((new IndexModel())->buildData($session))->getData());
     }
 }

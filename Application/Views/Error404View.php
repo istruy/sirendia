@@ -11,6 +11,6 @@ class Error404View extends View
 {
     public function generate()
     {
-        echo $this->twig->render("error404.html.twig");
+        echo $this->twig->render("error.html.twig");
     }
 }
