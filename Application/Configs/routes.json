@@ -1,8 +1,29 @@
 {
   "index": {
     "patterns": [
-      "/"
+      "/",
+      "/goods/male",
+      "/goods/female",
+      "/goods/special"
     ],
     "controller": "IndexController"
+  },
+  "delivery": {
+    "patterns": [
+      "/delivery"
+    ],
+    "controller": "DeliveryController"
+  },
+  "contacts": {
+    "patterns": [
+      "/contacts"
+    ],
+    "controller": "ContactsController"
+  },
+  "contacts": {
+    "patterns": [
+      "/goods/details/*"
+    ],
+    "controller": "GoodController"
   }
 }

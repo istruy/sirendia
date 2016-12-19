@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+<div style="
+    background: #e1e1e1;
+    border: 2px solid #c0c0c0;
+    width: 50%;
+    margin-left: 25%;
+    border-radius: 10px;
+    padding: 20px;
+">
+    <div style="font-size: 24pt;margin-bottom: 20px;">{{ title }} - {{ price }}</div>
+    <div style="display: table;">
+        <img src="{{ media }}" style="border: 2px solid silver;display: table-cell;">
+        <div style="display: table-cell;vertical-align: top;padding-left: 30px;font-size: 18pt;">
+            <b>Описание:</b> <br>
+            {{ description }}
+        </div>
+    </div>
+</div>
+</body>
+</html>

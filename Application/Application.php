@@ -52,7 +52,7 @@ class Application
             $controller = Router::getInstance()->getController($route['controller']);
             $controller->action($server, $request, $session);
         } catch (RouterNotFoundRouteException $exception) {
-            (new Error404Controller())->action($server, [], $session);
+            (new ErrorController())->action($server, ['errorMessage' => $exception->getMessage()], $session);
             self::logError("RouterNotFoundRoute exception!!!", $exception);
         } catch (ApplicationException $exception) {
             (new ErrorController())->action($server, ['errorMessage' => $exception->getMessage()], $session);

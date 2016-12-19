@@ -21,6 +21,7 @@ class Database
     {
         static::$instance = new self();
         static::$instance->connection = static::$instance->createConnection($host, $user, $password, $dataBaseName);
+
     }
 
     /**
@@ -45,15 +46,24 @@ class Database
      */
     private function createConnection(string $host, string $user, string $password, string $dataBaseName): \mysqli
     {
-        return mysqli_connect($host, $user, $password, $dataBaseName);
+        $mysqli = mysqli_connect($host, $user, $password, $dataBaseName);
+        $mysqli->set_charset('utf8');
+
+        return $mysqli;
     }
 
     /**
      * @param string $query
-     * @return array|null
+     * @return array
      */
     public function query(string $query)
     {
-        return mysqli_fetch_all(mysqli_query($this->connection, $query));
+        $mysqliQuery = mysqli_query($this->connection, $query);
+        $result = [];
+        while ($row = mysqli_fetch_assoc($mysqliQuery)) {
+            $result[] = $row;
+        }
+
+        return $result;
     }
 }

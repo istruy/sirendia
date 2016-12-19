@@ -7,6 +7,7 @@ use Application\Views\IndexView;
 
 /**
  * Class MainController
+ *
  * @package Application\Controllers
  */
 class IndexController extends Controller
@@ -18,6 +19,6 @@ class IndexController extends Controller
      */
     public function action(array $server, array $request, array $session)
     {
-        (new IndexView())->generate(((new IndexModel())->buildData($session))->getData());
+        (new IndexView())->generate(((new IndexModel())->buildData($session, $server))->getData());
     }
 }
